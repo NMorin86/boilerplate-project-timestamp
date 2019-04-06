@@ -19,7 +19,7 @@ function parseToDate(timeIn) {
     date = new Date();
   } else if(String(parseInt(timeIn)).length == timeIn.length) {
     // We have a UNIX number
-    date = new Date(parseInt(timeIn));
+    date = new Date(parseInt(timeIn) * 1000);
   } else {
     // Try a regular parse
     date = new Date(timeIn)
