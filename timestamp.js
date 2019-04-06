@@ -12,12 +12,9 @@ function sendStamp(req, res, next) {
 function parseToDate(timeIn) {
   let date;
   
-  // Trim leading 0s
-  timeIn = timeIn.replace(/^0+/, '')
-  
   if(timeIn === '') {
     date = new Date();
-  } else if(String(parseInt(timeIn)).length == timeIn.length) {
+  } else if(/^\d+$/.test(timeIn)) {
     // We have a UNIX number
     date = new Date(parseInt(timeIn) * 1000);
   } else {
