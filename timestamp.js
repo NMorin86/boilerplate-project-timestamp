@@ -1,12 +1,12 @@
 let express = require('express');
 
 function sendStamp(req, res, next) {
-  let timeIn = req.path.split('/')[3];
-  console.log("In sendstamp: ", timeIn);
+  let timeIn = req.path.split('/')[3];  
   let time = parseToDate(timeIn);
   let JSONout = parseToJSON(time);
+  console.log("In sendstamp: ", timeIn, JSONout);
   res.json(JSONout);
-  next();  
+  next();
 }
 
 function parseToDate(timeIn) {
@@ -24,10 +24,8 @@ function parseToDate(timeIn) {
     // Try a regular parse
     date = new Date(timeIn)
   }
-  console.log(date);
   
-  return date;
-    
+  return date;    
 }
 
 function parseToJSON(time) {
