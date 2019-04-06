@@ -1,8 +1,11 @@
 let express = require('express');
 
-function sendStamp(res, req, next) {
-  express.send("Hello there");
+function sendStamp(req, res, next) {
+  let timeIn = req.params.date_string;
+  console.log("In sendstamp: ", timeIn);
+  res.send("Hello there, " + timeIn);
+  next();
   
 }
 
-export sendStamp
+exports.sendStamp = sendStamp;
